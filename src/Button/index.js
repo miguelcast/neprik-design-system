@@ -1,8 +1,13 @@
+// @flow
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = ({ children, ...rest }) => {
-  return <ButtonStyled {...rest}>{children}</ButtonStyled>
+type Props = {
+  children: Node,
+};
+
+const Button = ({ children }: Props) => {
+  return <ButtonStyled>{children}</ButtonStyled>
 };
 
 const ButtonStyled = styled.button`
