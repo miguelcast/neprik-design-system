@@ -1,5 +1,3 @@
-import React from 'react';
+import './globalStyle'
 
-import './globalStyle';
-
-export { default as Button } from './Button';
+export { default as Button } from './Button'
