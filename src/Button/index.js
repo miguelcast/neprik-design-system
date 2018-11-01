@@ -3,11 +3,12 @@ import React, { memo } from 'react'
 import styled from 'styled-components'
 
 type Props = {
+  onClick: () => void,
   children: Node,
 };
 
-const Button = ({ children }: Props) => {
-  return <ButtonStyled>{children}</ButtonStyled>
+const Button = ({ onClick, children }: Props) => {
+  return <ButtonStyled onClick={onClick}>{children}</ButtonStyled>
 }
 
 const ButtonStyled = styled.button`
@@ -19,8 +20,7 @@ const ButtonStyled = styled.button`
   background-image: linear-gradient(to right, #ff9657, #ff865a, #ff765f, #ff6567, #ff5471);
   
   color: white;
-  font-size: 24px;
-  letter-spacing: 0.5px;
+  font-size: 1.5rem;
 
   transition: box-shadow 0.3s ease-in-out;
   
