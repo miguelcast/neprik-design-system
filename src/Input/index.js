@@ -10,6 +10,7 @@ type Props = {
   placeholder?: string,
   icon?: string,
   error?: string,
+  onChange?: (value: string) => void,
   ref: any
 };
 
@@ -22,8 +23,13 @@ class Input extends PureComponent<Props, State> {
     value: ''
   }
 
+  handlerChange = e => {
+    this.setState({ value: e.target.value })
+    this.props.onChange(e.target.value)
+  }
+
   render() {
-    const { defaultValue, placeholder, label, icon, error, ref } = this.props
+    const { defaultValue, placeholder, label, icon, error, ref, ...rest } = this.props
     const { value } = this.state
     return (
       <Wrapper error={!!error}>
@@ -34,17 +40,18 @@ class Input extends PureComponent<Props, State> {
         )}
         <WrapperLabelInput>
           {(label || error) && (
-            <WrapperLabel onlyError={!(label && value) && error}>
+            <WrapperLabel error={!(label && value) && error}>
               {label && value && <Label>{label}</Label>}
               {error && <Error>{error}</Error>}
             </WrapperLabel>
           )}
           <InputStyled
+            {...rest}
             ref={ref}
             placeholder={placeholder}
             defaultValue={defaultValue}
             value={value}
-            onChange={e => this.setState({ value: e.target.value })}
+            onChange={this.handlerChange}
           />
         </WrapperLabelInput>
       </Wrapper>
@@ -80,7 +87,7 @@ const WrapperLabelInput = styled.div`
 
 const WrapperLabel = styled.div`
   display: flex;
-  justify-content: ${props => props.onlyError ? 'flex-end' : 'space-between'};
+  justify-content: ${props => props.error ? 'flex-end' : 'space-between'};
 `
 
 const showing = keyframes`

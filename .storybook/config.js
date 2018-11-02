@@ -8,6 +8,7 @@ addDecorator(story => <Fragment><Style />{story()}</Fragment>);
 
 // add stories
 function loadStories() {
+  require('../stories/Background.story');
   require('../stories/Button.story');
   require('../stories/Icon.story');
   require('../stories/Input.story');

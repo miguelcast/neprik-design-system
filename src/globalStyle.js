@@ -7,5 +7,11 @@ export default createGlobalStyle`
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     letter-spacing: 0.5px;
+    box-sizing: border-box; 
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
   }
 `
