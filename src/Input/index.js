@@ -110,6 +110,7 @@ const Error = styled.span`
 const InputStyled = styled.input`
   width: 100%;
   border: none;
+  background-color: transparent;
   color: #2C384B;
   font-size: 1.3rem;
   font-weight: 300;
