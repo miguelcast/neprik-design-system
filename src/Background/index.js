@@ -3,6 +3,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 
 type Props = {
+  url: string,
   width?: string,
   height?: string,
   x?: 'left' | 'center' | 'right',
@@ -10,9 +11,9 @@ type Props = {
   children: Node
 };
 
-function Background({ width, height, x = 'left', y = 'top', children }: Props) {
+function Background({ url, width, height, x = 'left', y = 'top', children }: Props) {
   return (
-    <Back width={width} height={height} x={x} y={y}>
+    <Back url={url} width={width} height={height} x={x} y={y}>
       {children}
     </Back>
   )
@@ -70,7 +71,7 @@ const Back = styled.div`
   display: flex;
   ${props => positions.x(props.x)};
   ${props => positions.y(props.y)};
-  background: url("https://picsum.photos/1200") no-repeat center;
+  background: url(${props => props.url}) no-repeat center;
   background-size: cover;
 `
 
