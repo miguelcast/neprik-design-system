@@ -12,6 +12,7 @@ const Title = ({ Tag = 'h1', children }: Props) => {
     text-align: center;
     color: #2C384B;
     font-weight: 400;
+    font-family: 'Lato', sans-serif;
   `
 
   return <TitleStyled>{children}</TitleStyled>

@@ -25,7 +25,7 @@ class Input extends PureComponent<Props, State> {
 
   handlerChange = e => {
     this.setState({ value: e.target.value })
-    this.props.onChange(e.target.value)
+    this.props.onChange(e)
   }
 
   render() {
