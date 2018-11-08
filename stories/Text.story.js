@@ -1,8 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Title } from '../src/index'
+import { Text } from '../src/index'
 
-storiesOf('Title', module)
+storiesOf('Text', module)
   .add('with text', () => (
-    <Title>Main Title</Title>
+    <Text tag="h1">Main Title</Text>
   ))

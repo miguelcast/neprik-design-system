@@ -1,6 +1,6 @@
 // @flow
 import React, { PureComponent } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styles from './style.css';
 
 import Icon from '../Icon'
 
@@ -10,7 +10,7 @@ type Props = {
   placeholder?: string,
   icon?: string,
   error?: string,
-  onChange?: (value: string) => void,
+  onChange?: (e: any) => void,
   ref: any
 };
 
@@ -32,20 +32,26 @@ class Input extends PureComponent<Props, State> {
     const { defaultValue, placeholder, label, icon, error, ref, ...rest } = this.props
     const { value } = this.state
     return (
-      <Wrapper error={!!error}>
+      <div
+        className={styles.wrapper}
+        style={{ borderBottom: `1px solid ${!!error ? '#FF5471' : '#566275'}` }}
+      >
         {icon && (
-          <WrapperIcon>
+          <div className={styles.wrapperIcon}>
             <Icon type={icon} size={32} />
-          </WrapperIcon>
+          </div>
         )}
-        <WrapperLabelInput>
+        <div className={styles.wrapperLabelInput}>
           {(label || error) && (
-            <WrapperLabel error={!(label && value) && error}>
-              {label && value && <Label>{label}</Label>}
-              {error && <Error>{error}</Error>}
-            </WrapperLabel>
+            <div
+              className={styles.wrapperLabel}
+              style={{ justifyContent: !(label && value) && error ? 'flex-end' : 'space-between' }}
+            >
+              {label && value && <label>{label}</label>}
+              {error && <span>{error}</span>}
+            </div>
           )}
-          <InputStyled
+          <input
             {...rest}
             ref={ref}
             placeholder={placeholder}
@@ -53,82 +59,10 @@ class Input extends PureComponent<Props, State> {
             value={value}
             onChange={this.handlerChange}
           />
-        </WrapperLabelInput>
-      </Wrapper>
+        </div>
+      </div>
     )
   }
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid ${props => props.error ? '#FF5471' : '#566275'};
-  
-  height: 45px;
-  transition: border-bottom-width 0.3s ease-in-out;
-  
-  &:focus-within {
-    border-bottom-width: 2px;
-  }
-`
-
-const WrapperIcon = styled.div`
-  color: #566275;
-  padding-right: 0.5rem;
-`
-
-const WrapperLabelInput = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
-  padding-bottom: 2px;
-`
-
-const WrapperLabel = styled.div`
-  display: flex;
-  justify-content: ${props => props.error ? 'flex-end' : 'space-between'};
-`
-
-const showing = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`
-
-const Label = styled.label`
-  display: inline-block;
-  color: #2C384B;
-  font-size: 0.7rem;
-  animation: ${showing} 0.3s ease-in-out;
-`
-
-const Error = styled.span`
-  order: 2;
-  display: inline-block;
-  color: #FF5471;
-  font-size: 0.7rem;
-  animation: ${showing} 0.3s ease-in-out;
-`
-
-const InputStyled = styled.input`
-  width: 100%;
-  border: none;
-  background-color: transparent;
-  color: #2C384B;
-  font-size: 1.3rem;
-  font-weight: 300;
-  
-  &:focus {
-    outline: none;
-  }
-  
-  &::placeholder {
-    color: #566275;
-  }
-`
 
 export default React.forwardRef((props: Props, ref: any) => <Input {...props} ref={ref} />)

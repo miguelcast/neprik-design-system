@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import { configure, addDecorator } from '@storybook/react';
+import React from 'react';
+import { configure } from '@storybook/react';
 
-import Style from '../src/globalStyle';
+import '../src/globalStyle.css';
 
 // add global styles styled-components to all components in storybook
-addDecorator(story => <Fragment><Style />{story()}</Fragment>);
+// addDecorator(story => <Fragment><Style />{story()}</Fragment>);
 
 // add stories
 function loadStories() {
@@ -12,7 +12,7 @@ function loadStories() {
   require('../stories/Button.story');
   require('../stories/Icon.story');
   require('../stories/Input.story');
-  require('../stories/Title.story');
+  require('../stories/Text.story');
 }
 
 configure(loadStories, module);

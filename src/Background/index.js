@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styles from './style.css';
 
 type Props = {
   url: string,
@@ -12,10 +12,26 @@ type Props = {
 };
 
 function Background({ url, width, height, x = 'left', y = 'top', children }: Props) {
+  const relative = {
+    width: width ? width : '100%',
+    height: height ? height : '100%',
+    position: 'relative'
+  };
+
+  const styleInline = {
+    backgroundImage: `url(${url})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    justifyContent: positions.x(x),
+    alignItems: positions.y(y)
+  }
+
   return (
-    <Back url={url} width={width} height={height} x={x} y={y}>
-      {children}
-    </Back>
+    <div style={relative}>
+      <div style={styleInline} className={styles.back}>
+        {children}
+      </div>
+    </div>
   )
 }
 
@@ -23,56 +39,31 @@ const positions = {
   y: type => {
     switch (type) {
       case 'bottom': {
-        return css`
-          align-items: flex-end;
-        `
+        return 'flex-end';
       }
       case 'center': {
-        return css`
-          align-items: center;
-        `
+        return 'center'
       }
       case 'top':
       default: {
-        return css`
-          align-items: flex-start;
-        `
+        return 'flex-start'
       }
     }
   },
   x: type => {
     switch (type) {
       case 'right': {
-        return css`
-          justify-content: flex-end;
-        `
+        return 'flex-end'
       }
       case 'center': {
-        return css`
-          justify-content: center;
-        `
+        return 'center'
       }
       case 'left':
       default: {
-        return css`
-          justify-content: flex-start;
-        `
+        return 'flex-start'
       }
     }
   }
 }
-
-const Back = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: ${props => props.width ? props.width : '100%'};
-  height: ${props => props.height ? props.height : '100%'};
-  display: flex;
-  ${props => positions.x(props.x)};
-  ${props => positions.y(props.y)};
-  background: url(${props => props.url}) no-repeat center;
-  background-size: cover;
-`
 
 export default Background
