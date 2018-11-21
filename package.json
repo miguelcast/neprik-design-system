@@ -68,6 +68,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-url": "^1.4.0",
+    "storybook-addon-jsx": "^5.4.0",
     "styled-components": "^4.0.3",
     "styled-icons": "^3.4.0"
   },

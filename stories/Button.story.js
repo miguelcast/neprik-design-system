@@ -4,9 +4,9 @@ import { action } from '@storybook/addon-actions'
 import { Button } from '../src/index'
 
 storiesOf('Button', module)
-  .add('with text', () => (
+  .addWithJSX('with text', () => (
     <Button onClick={action('clicked')}>Hello Button</Button>
   ))
-  .add('with some emoji', () => (
+  .addWithJSX('with some emoji', () => (
     <Button onClick={action('clicked')}><span role='img' aria-label='so cool'>😀 😎 👍 💯</span></Button>
   ))
