@@ -22,6 +22,19 @@ module.exports = (storybookBaseConfig, configType) => {
     ],
   });
 
+  storybookBaseConfig.module.rules.push({
+    test: /\.md$/,
+    include: path.resolve(__dirname, '../'),
+    use: [
+      {
+        loader: "html-loader"
+      },
+      {
+        loader: "markdown-loader",
+      }
+    ],
+  });
+
   // Return the altered config
   return storybookBaseConfig;
 };

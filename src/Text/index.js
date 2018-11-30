@@ -7,8 +7,10 @@ type Props = {
   children: Node,
 };
 
-const Text = ({ tag = 'p', children, ...rest }: Props) => {
+const Text = memo(({ tag = 'p', children, ...rest }: Props) => {
   return createElement(tag, { ...rest, className: styles.text }, [...children])
-}
+})
 
-export default memo(Text)
+Text.displayName = 'Text'
+
+export default Text

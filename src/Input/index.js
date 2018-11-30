@@ -65,4 +65,6 @@ class Input extends PureComponent<Props, State> {
   }
 }
 
-export default React.forwardRef((props: Props, ref: any) => <Input {...props} ref={ref} />)
+const InputForward = React.forwardRef((props: Props, ref: any) => <Input {...props} ref={ref} />)
+InputForward.displayName = 'Input';
+export default InputForward

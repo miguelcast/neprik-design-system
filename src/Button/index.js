@@ -7,12 +7,14 @@ type Props = {
   children: Node,
 };
 
-const Button = ({ onClick, children }: Props) => {
+const Button = memo(({ onClick, children }: Props) => {
   return (
     <button className={styles.buttonPrimary} onClick={onClick}>
       {children}
     </button>
   )
-}
+})
 
-export default memo(Button)
+Button.displayName = 'Button'
+
+export default Button

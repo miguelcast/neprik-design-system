@@ -1,11 +1,28 @@
 import React from 'react';
-import { configure, setAddon } from '@storybook/react';
-import JSXAddon from 'storybook-addon-jsx';
+import { configure, addDecorator } from '@storybook/react';
+import { setOptions, withOptions } from '@storybook/addon-options';
 
 import '../src/globalStyle.css';
 
-setAddon(JSXAddon);
+addDecorator(
+  withOptions({
+    name: 'Neprik Design System',
+    url: '#',
+  })
+);
 
+setOptions({
+  theme: {
+    mainTextColor: '#ff5471',
+    mainTextFace: 'Lato',
+    mainFill: '#ffffff',
+    barFill: '#e2e2e2',
+    mainBackground: '#f3f3f3',
+    mainBorder: '1px solid #e2e2e2',
+    mainBorderRadius: 5,
+    layoutMargin: 10,
+  }
+});
 // add global styles styled-components to all components in storybook
 // addDecorator(story => <Fragment><Style />{story()}</Fragment>);
 
