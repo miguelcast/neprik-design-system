@@ -10,8 +10,7 @@
   },
   "plugins": [
     "flowtype",
-    "react",
-    ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ]
+    "react"
   ],
   "parserOptions": {
     "sourceType": "module"

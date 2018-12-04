@@ -7,9 +7,9 @@ type Props = {
   children: Node,
 };
 
-const Button = memo(({ onClick, children }: Props) => {
+const Button = memo(({ onClick, children, ...rest }: Props) => {
   return (
-    <button className={styles.buttonPrimary} onClick={onClick}>
+    <button {...rest} className={styles.buttonPrimary} onClick={onClick}>
       {children}
     </button>
   )
