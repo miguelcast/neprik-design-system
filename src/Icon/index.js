@@ -4,12 +4,14 @@ import { Lock } from 'styled-icons/feather/Lock.cjs'
 import { Cast } from 'styled-icons/feather/Cast.cjs'
 import { Map } from 'styled-icons/feather/Map.cjs'
 import { User } from 'styled-icons/feather/User.cjs'
+import { AtSign } from 'styled-icons/feather/AtSign.cjs'
 
 const featherIcons = {
   Lock,
   Cast,
   Map,
-  User
+  User,
+  AtSign
 };
 
 type Props = {

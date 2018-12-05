@@ -1,14 +1,20 @@
 // @flow
 import React, { memo, createElement } from 'react'
-import styles from './style.css';
 
 type Props = {
   tag?: string,
-  children: Node,
+  text: string
 };
 
-const Text = memo(({ tag = 'p', children, ...rest }: Props) => {
-  return createElement(tag, { ...rest, className: styles.text }, [...children])
+const textStyle = {
+  textAlign: 'center',
+  color: '#2C384B',
+  fontWeight: '400',
+  fontFamily: "'Lato', sans-serif"
+}
+
+const Text = memo(({ tag = 'p', text, ...rest }: Props) => {
+  return createElement(tag, { ...rest, style: textStyle }, text)
 })
 
 Text.displayName = 'Text'

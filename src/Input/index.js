@@ -1,6 +1,6 @@
 // @flow
 import React, { PureComponent } from 'react'
-import styles from './style.css';
+import styled, { keyframes } from 'styled-components'
 
 import Icon from '../Icon'
 
@@ -32,24 +32,20 @@ class Input extends PureComponent<Props, State> {
     const { defaultValue, placeholder, label, icon, error, ref, ...rest } = this.props
     const { value } = this.state
     return (
-      <div
-        className={styles.wrapper}
-        style={{ borderBottom: `1px solid ${!!error ? '#FF5471' : '#566275'}` }}
-      >
+      <Wrapper color={error ? '#FF5471' : '#566275'}>
         {icon && (
-          <div className={styles.wrapperIcon}>
+          <WrapperIcon>
             <Icon type={icon} size={32} />
-          </div>
+          </WrapperIcon>
         )}
-        <div className={styles.wrapperLabelInput}>
+        <WrapperLabelInput>
           {(label || error) && (
-            <div
-              className={styles.wrapperLabel}
-              style={{ justifyContent: !(label && value) && error ? 'flex-end' : 'space-between' }}
+            <WrapperLabel
+              justifyContent={!(label && value) && error ? 'flex-end' : 'space-between'}
             >
               {label && value && <label>{label}</label>}
               {error && <span>{error}</span>}
-            </div>
+            </WrapperLabel>
           )}
           <input
             {...rest}
@@ -59,12 +55,88 @@ class Input extends PureComponent<Props, State> {
             value={value}
             onChange={this.handlerChange}
           />
-        </div>
-      </div>
+        </WrapperLabelInput>
+      </Wrapper>
     )
   }
 }
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: 45px;
+  transition: border-bottom-width 0.3s ease-in-out;
+  border-bottom: 1px solid ${({ color }) => color};
+  
+  &:focus-within {
+    border-bottom-color: #2C384B;
+  }
+  
+  &:focus-within label {
+    font-weight: bold;
+  }
+`
+
+const WrapperIcon = styled.div`
+  color: #566275;
+  padding-right: 0.5rem;
+`
+
+const WrapperLabelInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  padding-bottom: 2px;
+    
+  & > input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: #2C384B;
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+  
+  & > input:focus {
+    outline: none;
+  }
+  
+  & > input::placeholder {
+    color: #566275;
+  }
+`
+
+const SHOWING = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
+
+const WrapperLabel = styled.div`
+  display: flex;
+  justify-content: ${({ justifyContent }) => justifyContent};
+  
+  & > label {
+    display: inline-block;
+    color: #2C384B;
+    font-size: 0.7rem;
+    animation: ${SHOWING} 0.3s ease-in-out;
+  }
+  
+  & > span {
+    order: 2;
+    display: inline-block;
+    color: #FF5471;
+    font-size: 0.7rem;
+    animation: ${SHOWING} 0.3s ease-in-out;
+  }
+`
+
 const InputForward = React.forwardRef((props: Props, ref: any) => <Input {...props} ref={ref} />)
-InputForward.displayName = 'Input';
+InputForward.displayName = 'Input'
 export default InputForward

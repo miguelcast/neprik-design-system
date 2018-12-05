@@ -13,9 +13,9 @@ const README = `
   \`\`\`
   
   <!-- STORY -->
-`;
+`
 
 storiesOf('Text', module)
   .add('with text', withDocs(README, () => (
-    <Text tag="h1">Main Title</Text>
+    <Text tag='h1' text='Main Title' />
   )))
