@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import styles from './style.css';
+import styled from 'styled-components'
 
 type Props = {
   url: string,
@@ -12,26 +12,12 @@ type Props = {
 };
 
 function Background({ url, width, height, x = 'left', y = 'top', children }: Props) {
-  const relative = {
-    width: width ? width : '100%',
-    height: height ? height : '100%',
-    position: 'relative'
-  };
-
-  const styleInline = {
-    backgroundImage: `url(${url})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    justifyContent: positions.x(x),
-    alignItems: positions.y(y)
-  }
-
   return (
-    <div style={relative}>
-      <div style={styleInline} className={styles.back}>
+    <Wrapper width={width} height={height}>
+      <BackStyled url={url} justify={positions.x(x)} alignItems={positions.y(y)}>
         {children}
-      </div>
-    </div>
+      </BackStyled>
+    </Wrapper>
   )
 }
 
@@ -39,7 +25,7 @@ const positions = {
   y: type => {
     switch (type) {
       case 'bottom': {
-        return 'flex-end';
+        return 'flex-end'
       }
       case 'center': {
         return 'center'
@@ -65,5 +51,29 @@ const positions = {
     }
   }
 }
+
+const Wrapper = styled.div`
+  width: ${({ width }) => width || '100%'};
+  height: ${({ height }) => height || '100%'};
+  position: relative;
+`
+
+const BackStyled = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  
+  background-image: url(${({ url }) => url});
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: ${({ justify }) => justify};
+  align-items: ${({ alignItems }) => alignItems};
+`
+
+Background.displayName = 'Background'
 
 export default Background
