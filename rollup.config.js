@@ -31,7 +31,8 @@ export default {
     svgr(),
     babel({
       exclude: 'node_modules/**',
-      externalHelpers: true
+      externalHelpers: true,
+      runtimeHelpers: true
     }),
     resolve(),
     commonjs()

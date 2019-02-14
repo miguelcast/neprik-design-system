@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import React, { memo } from 'react'
 import { Lock } from 'styled-icons/feather/Lock.cjs'
 import { Cast } from 'styled-icons/feather/Cast.cjs'
 import { Map } from 'styled-icons/feather/Map.cjs'
@@ -19,9 +19,9 @@ type Props = {
   size?: number
 };
 
-function Icon({ type, size = 32 }: Props) {
+const Icon = memo(({ type, size = 32 }: Props) => {
   const IconFeather = featherIcons[type]
   return <IconFeather size={size} />
-}
+})
 
 export default Icon
