@@ -25,10 +25,9 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0",
-    "styled-components": "^4.0.0",
-    "styled-icons": "^3.0.0"
+    "react": ">= 16.6.1",
+    "react-dom": ">= 16.6.1",
+    "styled-components": ">= 4.X"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -47,6 +46,7 @@
     "@svgr/rollup": "^2.4.1",
     "babel-eslint": "^8.2.5",
     "babel-loader": "^8.0.4",
+    "babel-plugin-styled-components": "^1.10.0",
     "cross-env": "^5.1.4",
     "eslint": "^5.8.0",
     "eslint-config-standard": "^11.0.0",
@@ -73,7 +73,7 @@
     "rollup-plugin-url": "^1.4.0",
     "storybook-readme": "4.0.1",
     "styled-components": "^4.0.0",
-    "styled-icons": "^3.4.0"
+    "styled-icons": "^7.1.1"
   },
   "files": [
     "dist"

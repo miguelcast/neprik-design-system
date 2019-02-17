@@ -1,10 +1,10 @@
 // @flow
 import React, { memo } from 'react'
-import { Lock } from 'styled-icons/feather/Lock.cjs'
-import { Cast } from 'styled-icons/feather/Cast.cjs'
-import { Map } from 'styled-icons/feather/Map.cjs'
-import { User } from 'styled-icons/feather/User.cjs'
-import { AtSign } from 'styled-icons/feather/AtSign.cjs'
+import { Lock } from 'styled-icons/feather/Lock'
+import { Cast } from 'styled-icons/feather/Cast'
+import { Map } from 'styled-icons/feather/Map'
+import { User } from 'styled-icons/feather/User'
+import { AtSign } from 'styled-icons/feather/AtSign'
 
 const featherIcons = {
   Lock,

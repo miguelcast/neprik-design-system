@@ -2466,7 +2466,7 @@ babel-plugin-react-docgen@^2.0.0:
     react-docgen "^3.0.0"
     recast "^0.14.7"
 
-"babel-plugin-styled-components@>= 1":
+"babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.0.tgz#ff1f42ad2cc78c21f26b62266b8f564dbc862939"
   dependencies:
@@ -10597,9 +10597,12 @@ styled-components@^4.0.0:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-icons@^3.4.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-3.7.0.tgz#3b765790ecd1aaa9a0044fb19c11af5e59d0278c"
+styled-icons@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-7.1.1.tgz#48e86d1b531dbf5e86ff1cf5c370c53a30f92806"
+  dependencies:
+    "@emotion/is-prop-valid" "^0.7.3"
+    tslib "^1.9.3"
 
 stylis-rule-sheet@^0.0.10:
   version "0.0.10"
@@ -10924,7 +10927,7 @@ trough@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.3.tgz#e29bd1614c6458d44869fc28b255ab7857ef7c24"
 
-tslib@^1.9.0:
+tslib@^1.9.0, tslib@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
 

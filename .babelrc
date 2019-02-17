@@ -19,7 +19,8 @@
         "useESModules": false
       }
     ],
-    "@babel/plugin-proposal-export-default-from",
-    "@babel/plugin-proposal-class-properties"
+    ["styled-components", { "useDisplayName": false }],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-default-from"
   ]
 }
