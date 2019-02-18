@@ -33,6 +33,7 @@ function loadStories() {
   require('../stories/Button.story');
   require('../stories/Icon.story');
   require('../stories/Input.story');
+  require('../stories/Menu.story');
   require('../stories/Text.story');
 }
 
