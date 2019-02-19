@@ -1,18 +1,8 @@
 // @flow
 import React, { memo } from 'react'
-import { Lock } from 'styled-icons/feather/Lock'
-import { Cast } from 'styled-icons/feather/Cast'
-import { Map } from 'styled-icons/feather/Map'
-import { User } from 'styled-icons/feather/User'
-import { AtSign } from 'styled-icons/feather/AtSign'
+import * as icons from 'styled-icons/feather'
 
-const featherIcons = {
-  Lock,
-  Cast,
-  Map,
-  User,
-  AtSign
-};
+const featherIcons = icons
 
 type Props = {
   type: $Keys<typeof featherIcons>,
