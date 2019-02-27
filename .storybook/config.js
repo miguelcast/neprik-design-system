@@ -29,6 +29,7 @@ setOptions({
 // add stories
 function loadStories() {
   require('./welcomeStory');
+  require('../stories/Avatar.story');
   require('../stories/Background.story');
   require('../stories/Button.story');
   require('../stories/Icon.story');
