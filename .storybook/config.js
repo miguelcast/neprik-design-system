@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { setOptions, withOptions } from '@storybook/addon-options';
 
-import '../src/globalStyle.css';
+import '!style-loader!css-loader!../src/globalStyle.css';
 
 addDecorator(
   withOptions({
@@ -23,8 +23,6 @@ setOptions({
     layoutMargin: 10,
   }
 });
-// add global styles styled-components to all components in storybook
-// addDecorator(story => <Fragment><Style />{story()}</Fragment>);
 
 // add stories
 function loadStories() {
