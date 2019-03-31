@@ -40,9 +40,9 @@
     "@storybook/addon-actions": "^5.0.0",
     "@storybook/addon-info": "^5.0.0",
     "@storybook/addon-links": "^5.0.0",
-    "@storybook/addon-options": "^5.0.0",
     "@storybook/addons": "^5.0.0",
     "@storybook/react": "^5.0.0",
+    "@storybook/theming": "^5.0.3",
     "@svgr/rollup": "^4.1.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.0-beta.6",
@@ -57,7 +57,7 @@
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^4.0.0",
-    "flow-bin": "^0.94.0",
+    "flow-bin": "^0.95.1",
     "gh-pages": "^2.0.1",
     "html-loader": "^0.5.5",
     "markdown-loader": "^5.0.0",
@@ -71,7 +71,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-url": "^2.2.0",
-    "storybook-readme": "4.0.5",
+    "storybook-readme": "5.0.1",
     "styled-components": "^4.0.0",
     "styled-icons": "^7.1.1"
   },
@@ -79,7 +79,6 @@
     "dist"
   ],
   "dependencies": {
-    "@babel/plugin-proposal-export-default-from": "^7.2.0",
-    "react-tooltip-lite": "^1.9.1"
+    "@babel/plugin-proposal-export-default-from": "^7.2.0"
   }
 }

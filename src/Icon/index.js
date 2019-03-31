@@ -11,7 +11,7 @@ type Props = {
 
 const Icon = memo(({ type, size = 32 }: Props) => {
   const IconFeather = featherIcons[type]
-  return <IconFeather size={size} />
+  return <i><IconFeather size={size} /></i>
 })
 
 export default Icon

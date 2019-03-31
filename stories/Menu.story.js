@@ -9,6 +9,6 @@ storiesOf('Menu', module)
       <Item icon='Layers' text='Servicios' />
       <Item icon='Inbox' text='Contacto' bottom />
       <Item icon='Settings' text='Configuración' bottom />
-      <Item Component={<Avatar icon='User' />} text='Configuración' bottom />
+      <Item Component={<Avatar icon='User' />} bottom />
     </Menu>
   ))

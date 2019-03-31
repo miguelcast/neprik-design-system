@@ -1,7 +1,7 @@
 // @flow
-import React from 'react'
-import Item from './Item'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import Item from './Item'
 
 type Props = {
   logo?: string,
@@ -9,18 +9,37 @@ type Props = {
 };
 
 const Menu = ({ logo, children }: Props) => {
+  const [hover, setHover] = useState(false);
   const getChildrenByPosition = fn => {
     return React.Children.map(React.Children.toArray(children), fn)
   }
 
+  const mouseOver = event => {
+    setHover(event);
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onMouseEnter={() => mouseOver(true)} onMouseLeave={() => mouseOver(false)}>
       <Top>
         {logo && <img src={logo} alt={logo} />}
-        {getChildrenByPosition(child => (child.props.bottom ? null : child))}
+        {getChildrenByPosition(
+          child =>
+            (
+              child.props.bottom
+                ? null
+                : React.cloneElement(child, { hover })
+            )
+        )}
       </Top>
       <Bottom>
-        {getChildrenByPosition(child => (child.props.bottom ? child : null))}
+        {getChildrenByPosition(
+          child =>
+            (
+              child.props.bottom
+                ? React.cloneElement(child, { hover })
+                : null
+            )
+        )}
       </Bottom>
     </Wrapper>
   )
@@ -37,6 +56,10 @@ const Wrapper = styled.div`
   padding-top: 20px;
   background-color: #2c384b;
   color: white;
+  transition: width 180ms ease-in-out;
+  &:hover {
+    width: 200px;
+  }
 `
 
 const Top = styled.div`
