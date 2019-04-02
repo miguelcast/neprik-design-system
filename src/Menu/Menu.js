@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import Item from './Item'
+import { Wrapper, Bottom, Top } from './Horizontal.theme'
 
 type Props = {
   logo?: string,
@@ -44,37 +44,6 @@ const Menu = ({ logo, children }: Props) => {
     </Wrapper>
   )
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  left: 0;
-  width: 80px;
-  height: 100%;
-  padding-top: 20px;
-  background-color: #2c384b;
-  color: white;
-  transition: width 180ms ease-in-out;
-  &:hover {
-    width: 200px;
-  }
-`
-
-const Top = styled.div`
-  width: 100%;
-  text-align: center;
-  
-  & > img:first-child {
-    margin-bottom: 5px;
-  }
-`
-
-const Bottom = styled.div`
-  width: 100%;
-  text-align: center;
-`
 
 Menu.displayName = 'Menu'
 export default Menu
