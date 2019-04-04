@@ -18,6 +18,9 @@ export const Top = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  & > img:first-child {
+    padding-right: 8px;
+  }
 `
 
 export const Bottom = styled.div`
@@ -25,3 +28,22 @@ export const Bottom = styled.div`
   justify-content: flex-end;
   align-items: center;
 `
+
+export const WrapperItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  cursor: pointer;
+  text-align: left;
+  padding-left: 8px;
+  padding-right: 8px;
+  & > i {
+    padding-right: 8px;
+    opacity: 0.6;
+  }
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;

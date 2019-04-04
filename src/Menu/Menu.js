@@ -1,14 +1,18 @@
 // @flow
 import React, { useState } from 'react'
 import Item from './Item'
-import { Wrapper, Bottom, Top } from './Horizontal.theme'
+import * as horizontal from './Horizontal.theme'
+import * as vertical from './Vertical.theme'
+
+const alignMenu = { horizontal, vertical };
 
 type Props = {
   logo?: string,
+  align?: 'vertical' | 'horizontal',
   children: React.ChildrenArray<React.Element<typeof Item>>
 };
 
-const Menu = ({ logo, children }: Props) => {
+const Menu = ({ logo, align = 'vertical', children }: Props) => {
   const [hover, setHover] = useState(false);
   const getChildrenByPosition = fn => {
     return React.Children.map(React.Children.toArray(children), fn)
@@ -17,6 +21,10 @@ const Menu = ({ logo, children }: Props) => {
   const mouseOver = event => {
     setHover(event);
   }
+
+  const Wrapper = alignMenu[align].Wrapper;
+  const Top = alignMenu[align].Top;
+  const Bottom = alignMenu[align].Bottom;
 
   return (
     <Wrapper onMouseEnter={() => mouseOver(true)} onMouseLeave={() => mouseOver(false)}>
@@ -27,7 +35,7 @@ const Menu = ({ logo, children }: Props) => {
             (
               child.props.bottom
                 ? null
-                : React.cloneElement(child, { hover })
+                : React.cloneElement(child, { hover, align })
             )
         )}
       </Top>
@@ -36,7 +44,7 @@ const Menu = ({ logo, children }: Props) => {
           child =>
             (
               child.props.bottom
-                ? React.cloneElement(child, { hover })
+                ? React.cloneElement(child, { hover, align })
                 : null
             )
         )}
