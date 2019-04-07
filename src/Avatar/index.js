@@ -24,7 +24,7 @@ const AvatarStyled = styled.div`
   height: 45px;
   width: 45px;
   border-radius: 50%;
-  border: 1px solid lightcoral;
+  box-shadow: inset 0 0 0 1px hsla(0,0%,0%,0.1);
   background-color: white;
   color: #2C384B;
 `

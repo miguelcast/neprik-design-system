@@ -13,12 +13,14 @@ type Props = {
   hover?: boolean,
   Component?: React.ReactElement,
   bottom?: boolean,
+  hoverStyle?: boolean,
+  theme?: 'light' | 'dark',
 };
 
-const Item = ({ align = 'vertical', text = "", icon, hover, Component }: Props) => {
+const Item = ({ align = 'vertical', text = "", theme = 'dark', icon, hover, hoverStyle = true, Component }: Props) => {
   const WrapperItem = alignMenu[align].WrapperItem;
   return (
-    <WrapperItem hover={hover} haveText={!!text || align === 'horizontal'}>
+    <WrapperItem hover={(hover && hoverStyle)} haveText={!!text || align === 'horizontal'}>
       {icon && <Icon type={icon}/>}{Component || null}
       <span>{(hover || align === 'horizontal') ? text : null}</span>
     </WrapperItem>

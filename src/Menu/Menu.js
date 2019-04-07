@@ -9,10 +9,11 @@ const alignMenu = { horizontal, vertical };
 type Props = {
   logo?: string,
   align?: 'vertical' | 'horizontal',
+  theme?: 'light' | 'dark',
   children: React.ChildrenArray<React.Element<typeof Item>>
 };
 
-const Menu = ({ logo, align = 'vertical', children }: Props) => {
+const Menu = ({ logo, theme = 'dark', align = 'vertical', children }: Props) => {
   const [hover, setHover] = useState(false);
   const getChildrenByPosition = fn => {
     return React.Children.map(React.Children.toArray(children), fn)
@@ -27,15 +28,19 @@ const Menu = ({ logo, align = 'vertical', children }: Props) => {
   const Bottom = alignMenu[align].Bottom;
 
   return (
-    <Wrapper onMouseEnter={() => mouseOver(true)} onMouseLeave={() => mouseOver(false)}>
+    <Wrapper onMouseEnter={() => mouseOver(true)} onMouseLeave={() => mouseOver(false)} theme={theme}>
       <Top>
-        {logo && <img src={logo} alt={logo} />}
+        {logo && (
+          <div className="logoMenu">
+            <img src={logo} alt={logo} />
+          </div>
+        )}
         {getChildrenByPosition(
           child =>
             (
               child.props.bottom
                 ? null
-                : React.cloneElement(child, { hover, align })
+                : React.cloneElement(child, { hover, align, theme })
             )
         )}
       </Top>
@@ -44,7 +49,7 @@ const Menu = ({ logo, align = 'vertical', children }: Props) => {
           child =>
             (
               child.props.bottom
-                ? React.cloneElement(child, { hover, align })
+                ? React.cloneElement(child, { hover, align, theme })
                 : null
             )
         )}
