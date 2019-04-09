@@ -14,7 +14,7 @@ addParameters({
       colorPrimary: '#ff5471',
       appContentBg: 'white',
       brandTitle: 'Neprik Design System',
-      brandImage: '/logo.png',
+      brandUrl: '/logo.png',
     },
   },
 });

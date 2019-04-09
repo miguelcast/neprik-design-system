@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -8,11 +8,12 @@ export const Wrapper = styled.div`
   left: 0;
   width: 80px;
   height: 100%;
-  box-shadow: ${({theme}) => theme === 'dark' 
+  z-index: 50;
+  box-shadow: ${({ theme }) => theme === 'dark'
     ? '0 4px 6px rgba(0, 0, 0, 0.7), 0 5px 15px rgba(0, 0, 0, 0.1)'
     : '0 4px 6px rgba(50, 50, 50, 0.1), 0 5px 15px rgba(50, 50, 50, 0.1)'};
-  background-color: ${({theme}) => theme === 'dark' ? '#2c384b' : 'white'};
-  color: ${({theme}) => theme === 'dark' ? 'white' : '#2c384b'};
+  background-color: ${({ theme }) => theme === 'dark' ? '#2c384b' : 'white'};
+  color: ${({ theme }) => theme === 'dark' ? 'white' : '#2c384b'};
   transition: width 180ms ease-in-out;
   &:hover {
     width: 200px;
@@ -66,4 +67,4 @@ export const WrapperItem = styled.div`
       }
     }
   `}
-`;
+`

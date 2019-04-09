@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,11 +9,11 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 64px;
   padding: 0 10px;
-  box-shadow: ${({theme}) => theme === 'dark'
-  ? '0 4px 6px rgba(0, 0, 0, 0.7), 0 5px 15px rgba(0, 0, 0, 0.1)'
-  : '0 2px 4px rgba(200, 200, 200, 0.1), 0 5px 15px rgba(100, 100, 100, 0.1)'};
-  background-color: ${({theme}) => theme === 'dark' ? '#2c384b' : 'white'};
-  color: ${({theme}) => theme === 'dark' ? 'white' : '#2c384b'};
+  box-shadow: ${({ theme }) => theme === 'dark'
+    ? '0 4px 6px rgba(0, 0, 0, 0.7), 0 5px 15px rgba(0, 0, 0, 0.1)'
+    : '0 2px 4px rgba(200, 200, 200, 0.1), 0 5px 15px rgba(100, 100, 100, 0.1)'};
+  background-color: ${({ theme }) => theme === 'dark' ? '#2c384b' : 'white'};
+  color: ${({ theme }) => theme === 'dark' ? 'white' : '#2c384b'};
 `
 
 export const Top = styled.div`
@@ -42,13 +42,14 @@ export const WrapperItem = styled.div`
   text-align: left;
   padding-left: 8px;
   padding-right: 8px;
+  z-index: 45;
   & > i {
     padding-right: 8px;
     opacity: 0.6;
   }
   ${({ hover }) => hover && css`
     &:hover {
-      background-color: ${({theme}) => theme === 'dark' ? 'rgba(0, 0, 0, 0.2)' : 'none'};
+      background-color: ${({ theme }) => theme === 'dark' ? 'rgba(0, 0, 0, 0.2)' : 'none'};
       &:after {
         content: '';
         position: absolute;
@@ -59,4 +60,4 @@ export const WrapperItem = styled.div`
       }
     }
   `}
-`;
+`
