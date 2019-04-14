@@ -40,8 +40,9 @@ export const WrapperItem = styled.div`
   height: 64px;
   cursor: pointer;
   text-align: left;
-  padding-left: 8px;
-  padding-right: 8px;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
   z-index: 45;
   & > i {
     padding-right: 8px;

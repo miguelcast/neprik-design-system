@@ -21,7 +21,7 @@ const Item = ({ align = 'vertical', text = '', theme = 'dark', icon, hover, hove
   const WrapperItem = alignMenu[align].WrapperItem
   return (
     <WrapperItem hover={(hover && hoverStyle)} haveText={!!text || align === 'horizontal'}>
-      {icon && <Icon type={icon} />}{Component || null}
+      {icon && <Icon type={icon} size={26} />}{Component || null}
       <span>{(hover || align === 'horizontal') ? text : null}</span>
     </WrapperItem>
   )

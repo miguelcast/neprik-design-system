@@ -11,14 +11,14 @@ const Avatar = memo(({ icon }: Props) => {
   return (
     <AvatarStyled>
       {icon && (
-        <Icon type={icon} size={32} />
+        <Icon type={icon} size={30} />
       )}
     </AvatarStyled>
   )
 })
 
 const AvatarStyled = styled.div`
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 45px;
