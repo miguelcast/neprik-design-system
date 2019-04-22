@@ -28,6 +28,7 @@ function loadStories() {
   require('../stories/Icon.story');
   require('../stories/Input.story');
   require('../stories/Menu.story');
+  require('../stories/Schedule.story');
   require('../stories/Text.story');
 }
 

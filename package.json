@@ -24,6 +24,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
+    "moment": "^2.20.0",
     "prop-types": "^15.5.4",
     "react": ">= 16.6.1",
     "react-dom": ">= 16.6.1",
@@ -61,6 +62,7 @@
     "gh-pages": "^2.0.1",
     "html-loader": "^0.5.5",
     "markdown-loader": "^5.0.0",
+    "moment": "^2.24.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-scripts": "^2.1.8",
