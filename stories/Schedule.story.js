@@ -8,7 +8,7 @@ function getRandomArbitrary(min, max) {
 
 storiesOf('Schedule', module)
   .add('with staff', () => (
-    <Schedule businessHours={{ from: '08:00', to: '20:00' }} staff={[
+    <Schedule businessHours={{ from: '08:00', to: '22:00' }} staff={[
       { id: 1,
         name: 'Luis Miguel Castrillon',
         avatar: 'http://i.pravatar.cc/50?img=6',

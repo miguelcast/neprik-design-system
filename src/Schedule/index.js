@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import moment from 'moment'
 import Staff from './Staff'
@@ -24,31 +24,30 @@ const hourSize = 160
 
 function Schedule({ staff, businessHours }: Props) {
   const [ indexHover, setIndexHover ] = useState(null)
+  const [ hours, setHour ] = useState([])
 
-  console.log('businessHours', businessHours)
-  const bhFrom = moment(businessHours.from, 'HH:mm')
-  const bhTo = moment(businessHours.to, 'HH:mm')
+  useEffect(() => {
+    const bhFrom = moment(businessHours.from, 'HH:mm')
+    const bhTo = moment(businessHours.to, 'HH:mm')
+
+    bhFrom.startOf('hour')
+    bhTo.endOf('hour').add(1, 'minute')
+    const mapDate = bhFrom.clone()
+
+    const listOfHours = []
+    while (mapDate.isBefore(bhTo)) {
+      listOfHours.push(mapDate.format('ha'))
+      mapDate.add(1, 'hour')
+    }
+    setHour(listOfHours)
+  }, [])
 
   return (
     <Wrapper>
       <Staff staff={staff} indexHover={indexHover} onHover={setIndexHover} />
       <WrapperCalendar>
         <Header>
-          <HourHeader>8am</HourHeader>
-          <HourHeader>9am</HourHeader>
-          <HourHeader>10am</HourHeader>
-          <HourHeader>11am</HourHeader>
-          <HourHeader>12pm</HourHeader>
-          <HourHeader>1pm</HourHeader>
-          <HourHeader>2pm</HourHeader>
-          <HourHeader>3pm</HourHeader>
-          <HourHeader>4pm</HourHeader>
-          <HourHeader>5pm</HourHeader>
-          <HourHeader>6pm</HourHeader>
-          <HourHeader>7pm</HourHeader>
-          <HourHeader>8pm</HourHeader>
-          <HourHeader>9pm</HourHeader>
-          <HourHeader>10pm</HourHeader>
+          {hours.map(h => <HourHeader>{h}</HourHeader>)}
         </Header>
         <Content>
           {staff && staff.map((person, idx) => (
