@@ -1,6 +1,7 @@
 // @flow
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
+import moment from 'moment'
 import Staff from './Staff'
 
 type StaffProps = {
@@ -19,10 +20,15 @@ type Props = {
   staff: Array<StaffProps>
 };
 
-const hourSize = 100
+const hourSize = 160
 
-function Schedule({ staff }: Props) {
+function Schedule({ staff, businessHours }: Props) {
   const [ indexHover, setIndexHover ] = useState(null)
+
+  console.log('businessHours', businessHours)
+  const bhFrom = moment(businessHours.from, 'HH:mm')
+  const bhTo = moment(businessHours.to, 'HH:mm')
+
   return (
     <Wrapper>
       <Staff staff={staff} indexHover={indexHover} onHover={setIndexHover} />
@@ -48,7 +54,10 @@ function Schedule({ staff }: Props) {
           {staff && staff.map((person, idx) => (
             <ScheduleItem onMouseOver={() => setIndexHover(idx)} onMouseOut={() => setIndexHover(null)} hover={indexHover === idx}>
               {person.dates && person.dates.map(date => (
-                <Date duration={date.duration} position={date.position}>{date.customer}</Date>
+                <Date duration={date.duration} position={date.position}>
+                  <div>{date.customer}</div>
+                  <div>6:30pm</div>
+                </Date>
               ))}
             </ScheduleItem>
           ))}
@@ -142,16 +151,28 @@ const Date = styled.div`
   position: absolute;
   left: ${props => props.position * hourSize}px;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   width: ${props => props.duration * hourSize}px;
   height: 45px;
   border-radius: 5px;
-  font-size: 12px;
   color: #ffffff;
   box-shadow: 0 0 2px rgba(200, 200, 200, 0.1), 0 0 10px rgba(100, 100, 100, 0.1);
   padding: 0 15px;
   background-color: #788B9C;
+  
+  &, & > * {
+    font-weight: 300;
+  }
+  
+  & > div:first-child {
+    font-size: 14px;
+  }
+  
+  & > div:last-child {
+    font-size: 10px;
+  }
 `
 
 Schedule.displayName = 'Schedule'
