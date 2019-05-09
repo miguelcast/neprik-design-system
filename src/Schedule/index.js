@@ -51,7 +51,11 @@ function Schedule({ staff, businessHours }: Props) {
         </Header>
         <Content>
           {staff && staff.map((person, idx) => (
-            <ScheduleItem onMouseOver={() => setIndexHover(idx)} onMouseOut={() => setIndexHover(null)} hover={indexHover === idx}>
+            <ScheduleItem
+              hours={hours.length}
+              onMouseOver={() => setIndexHover(idx)}
+              onMouseOut={() => setIndexHover(null)}
+              hover={indexHover === idx}>
               {person.dates && person.dates.map(date => (
                 <Date duration={date.duration} position={date.position}>
                   <div>{date.customer}</div>
@@ -134,7 +138,7 @@ const ScheduleItem = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: ${hourSize * 15}px;
+  width: ${props => hourSize * props.hours}px;
   height: 65px;
   border-bottom: 1px #D1D1D1 dashed;
   transition: opacity 0.15s ease-in-out;
