@@ -57,7 +57,7 @@
     "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.1",
     "flow-bin": "^0.98.1",
     "gh-pages": "^2.0.1",
     "html-loader": "^0.5.5",
@@ -73,9 +73,9 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-url": "^2.2.0",
-    "storybook-readme": "5.0.3",
+    "storybook-readme": "5.0.8",
     "styled-components": "^4.0.0",
-    "styled-icons": "^7.1.1"
+    "styled-icons": "^8.3.0"
   },
   "files": [
     "dist"
