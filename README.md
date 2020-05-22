@@ -2,6 +2,7 @@
 
 > Neprik design system
 
+[![Runme](https://runme.io/static/button.svg)](https://runme.io/run?app_id=3a830906-f455-4c2c-8f91-ab4f15da3f33)
 [![NPM](https://img.shields.io/npm/v/neprik-design-system.svg)](https://www.npmjs.com/package/neprik-design-system) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Status
